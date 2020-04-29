@@ -22,13 +22,21 @@ class Counter extends React.Component {
             value: this.state.value - 1
         })
     }
+    increase = () => {
+        // arrow functions do not change this
+        // no need to bind in constructor
+        this.setState({
+            value: this.state.value + 1
+        })
+    }
+
     render() {
         return (
             <div>
                 <div> The value is: {this.state.value} </div>
                 <div>
                     <button onClick={this.decrease}> -1 </button>
-                    <button> +1 </button>
+                    <button onClick={this.increase}> +1 </button>
                 </div>
             </div>
         );
